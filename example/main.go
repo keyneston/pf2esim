@@ -10,23 +10,15 @@ import (
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	d := pf.Dice{
-		Type:   pf.DTPiercing,
-		Number: 1,
-		Size:   8,
-	}
-
-	deadlyD10 := pf.Dice{
-		Type:   pf.DTPiercing,
-		Number: 1,
-		Size:   10,
-	}
-
 	att := pf.Attack{
 		Name:        "Bow",
 		AttackBonus: 7,
-		DamageDice:  append([]pf.Dice{}, d),
-		CritDice:    append([]pf.Dice{}, deadlyD10),
+		DamageDice: []pf.Dice{
+			pf.D8.SetType(pf.DTPiercing),
+		},
+		CritDice: []pf.Dice{
+			pf.D10.SetType(pf.DTPiercing),
+		},
 	}
 
 	bowRS := pf.RunSet{
@@ -37,11 +29,9 @@ func main() {
 	alch := pf.Attack{
 		Name:        "Alchemical Crossbow",
 		AttackBonus: 7,
-		DamageDice: []pf.Dice{d, pf.Dice{
-			Type:   pf.DTFire,
-			Number: 1,
-			Size:   6,
-		},
+		DamageDice: []pf.Dice{
+			pf.D8.SetType(pf.DTPiercing),
+			pf.D6.SetType(pf.DTFire),
 		},
 	}
 

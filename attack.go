@@ -1,13 +1,9 @@
 package pf2esim
 
-var D20 = Dice{
-	Number: 1,
-	Size:   20,
-	Type:   DTUntyped,
-}
-
 type Attack struct {
-	Name        string
+	Name string
+
+	Agile       bool
 	AttackBonus int
 	DamageDice  []Dice
 	CritDice    []Dice
@@ -40,12 +36,20 @@ func (a Attack) Calc() AttackSummary {
 }
 
 func (a Attack) Second() Attack {
-	a.AttackBonus -= 5
+	if a.Agile {
+		a.AttackBonus -= 4
+	} else {
+		a.AttackBonus -= 5
+	}
 	return a
 }
 
 func (a Attack) Third() Attack {
-	a.AttackBonus -= 10
+	if a.Agile {
+		a.AttackBonus -= 8
+	} else {
+		a.AttackBonus -= 10
+	}
 	return a
 }
 
