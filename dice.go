@@ -35,3 +35,16 @@ func (d Dice) Roll(bonuses ...int) int {
 func (d Dice) String() string {
 	return fmt.Sprintf("%dd%d+%d %s", d.Number, d.Size, d.Bonus, d.Type)
 }
+
+func ParseDice(in string) (Dice, error) {
+	return Dice{}, fmt.Errorf("Not yet implemented")
+}
+
+func MustParseDice(in string) Dice {
+	d, err := ParseDice(in)
+	if err != nil {
+		panic(err)
+	}
+
+	return d
+}

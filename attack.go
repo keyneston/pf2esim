@@ -39,6 +39,16 @@ func (a Attack) Calc() AttackSummary {
 	return summary
 }
 
+func (a Attack) Second() Attack {
+	a.AttackBonus -= 5
+	return a
+}
+
+func (a Attack) Third() Attack {
+	a.AttackBonus -= 10
+	return a
+}
+
 type AttackSummary struct {
 	Name       string
 	Attack     int

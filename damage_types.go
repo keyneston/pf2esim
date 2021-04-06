@@ -8,4 +8,5 @@ const (
 	DTSlashing               = "slashing"
 	DTBludgeoning            = "bludgeoning"
 	DTPrecision              = "precision"
+	DTFire                   = "fire"
 )
