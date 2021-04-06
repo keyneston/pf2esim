@@ -50,8 +50,8 @@ func main() {
 		Attacks: []pf.Attack{alch},
 	}
 
-	bowRS.Run(10000)
-	alchRS.Run(10000)
+	bowRS.Run(15, 10000)
+	alchRS.Run(15, 10000)
 
 	//for i := 0; i < 10; i++ {
 	//	s := att.Calc()
